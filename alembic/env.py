@@ -17,7 +17,24 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+from recommendation_engine.database.migrations import create_products_table, create_profiles_table, \
+    create_previously_recommended, create_sessions_table, create_viewed_before_table, \
+    create_order_table, create_user_agent_table, create_viewed_brand_table, \
+    create_viewed_category_table, create_viewed_gender_table, create_viewed_sub_category_table, \
+    create_viewed_sub_sub_category_table, create_viewed_promos_table, create_viewed_product_type_table, \
+    create_viewed_product_size_table, create_viewed_type_table
+
+target_metadata = [create_products_table.Base.metadata, create_profiles_table.Base.metadata,
+                   create_previously_recommended.Base.metadata, create_sessions_table.Base.metadata,
+                   create_viewed_before_table.Base.metadata,
+                   create_order_table.Base.metadata, create_user_agent_table.Base.metadata,
+                   create_viewed_brand_table.Base.metadata, create_viewed_category_table.Base.metadata,
+                   create_viewed_gender_table.Base.metadata, create_viewed_sub_category_table.Base.metadata,
+                   create_viewed_sub_sub_category_table.Base.metadata, create_viewed_promos_table.Base.metadata,
+                   create_viewed_product_type_table.Base.metadata, create_viewed_product_size_table.Base.metadata,
+                   create_viewed_type_table.Base.metadata
+                   ]
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

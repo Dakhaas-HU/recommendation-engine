@@ -1,5 +1,14 @@
-def kak(x):
-    print(x**2)
+"""
+main.py
+====================================
+The core module of my example project
+"""
+
+import random
 
 
-kak(int(input('Voor een getal in')))
+def test():
+    """
+    Prints random number between 0 and 99999
+    """
+    print(random.randrange(99999))

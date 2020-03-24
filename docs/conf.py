@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'recommendation-engine'
-copyright = '2020, Fabio Dijkshoorn, Bart de Vries en Jort Pals'
-author = 'Fabio Dijkshoorn, Bart de Vries en Jort Pals'
+project = 'Recommendation-engine'
+copyright = '2020, Fabio Dijkshoorn, Bart de Vries, Jort Pals'
+author = 'Fabio Dijkshoorn, Bart de Vries, Jort Pals'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'

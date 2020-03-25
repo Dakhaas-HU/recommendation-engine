@@ -4,7 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 database = createConnectionMongoDB()
 # TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("viewed_before.csv", "w+")
+file = open("./csv/viewed_before.csv", "w+")
 
 data = database.profiles.find()
 

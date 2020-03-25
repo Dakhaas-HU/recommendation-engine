@@ -5,7 +5,7 @@ load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
 # TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("viewed_type.csv", "w+")
+file = open("./csv/viewed_type.csv", "w+")
 
 data = database.sessions.find()
 

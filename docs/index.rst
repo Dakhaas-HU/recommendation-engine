@@ -9,6 +9,9 @@ Welcome to Recommendation-engine's documentation!
 .. automodule:: main
    :members:
 
+.. automodule:: filling_products
+   :members:
+
 
 .. toctree::
    :maxdepth: 2

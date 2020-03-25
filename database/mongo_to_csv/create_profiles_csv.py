@@ -1,8 +1,10 @@
-from exporter.settings.database import createConnectionMongoDB
+from recommendation_engine.database.connection import createConnectionMongoDB
 import csv
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 database = createConnectionMongoDB()
 # TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("profiles.csv", "w+")
+file = open("./csv/profiles.csv", "w+")
 
 data = database.profiles.find()
 

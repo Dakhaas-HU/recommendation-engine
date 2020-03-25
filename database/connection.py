@@ -5,8 +5,7 @@ import os
 
 
 def createConnectionMongoDB():
-    load_dotenv()
-    if os.getenv("DB_USE_AUTH") == 'True':
+    if os.getenv("DB_USE_AUTH") == 'TRUE':
         return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")), authSource=os.getenv("MONGODB_AUTH_DB"),
                     username=os.getenv("MONGODB_USERNAME"), password=os.getenv("MONGODB_PASSWORD"))
     else:

@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from recommendation_engine.database.migrations.create_products_table import Products
-from recommendation_engine.database.migrations.create_sessions_table import Sessions
+from database.migrations.create_products_table import Products
+from database.migrations.create_sessions_table import Sessions
 
 Base = declarative_base()
 

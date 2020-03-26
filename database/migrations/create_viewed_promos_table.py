@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, ForeignKey, Integer
 from sqlalchemy.ext.declarative import declarative_base
-from recommendation_engine.database.migrations.create_sessions_table import Sessions
+from database.migrations.create_sessions_table import Sessions
 
 Base = declarative_base()
 

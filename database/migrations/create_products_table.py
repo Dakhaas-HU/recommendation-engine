@@ -18,7 +18,7 @@ class Products(Base):
     sub_category = Column(String(255))
     sub_sub_category = Column(String(255))
     sub_sub_sub_category = Column(String(255))
-    discount = Column(Integer())
+    discount = Column(String(255))
     availablity = Column(String(255))
     target_group = Column(String(255))
     unit = Column(String(255))

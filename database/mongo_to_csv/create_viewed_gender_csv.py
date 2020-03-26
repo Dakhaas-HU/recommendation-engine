@@ -1,11 +1,14 @@
-from recommendation_engine.database.connection import createConnectionMongoDB
 import csv
+import os
+
 from dotenv import load_dotenv, find_dotenv
+
+from database.connection import createConnectionMongoDB
+
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
-# TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("./csv/viewed_gender.csv", "w+")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_gender.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 
@@ -16,25 +19,29 @@ with file:
     print('Started creating viewed_gender.csv')
 
     for item in data:
-        genders = item['preferences']['gender']
-        for gender in genders:
-            lineDic = {}
-            print(item)
-            try:
-                lineDic.update({'session_id': item['_id']})
-            except KeyError:
-                lineDic.update({'session_id': None})
+        try:
+            genders = item['preferences']['gender']
+            for gender in genders:
+                lineDic = {}
+                try:
+                    lineDic.update({'session_id': item['_id']})
+                except KeyError:
+                    lineDic.update({'session_id': None})
 
-            try:
-                lineDic.update({'views': gender['views']})
-            except KeyError:
-                lineDic.update({'views': None})
+                try:
+                    lineDic.update({'views': gender['views']})
+                except KeyError:
+                    lineDic.update({'views': None})
+                except TypeError:
+                    lineDic.update({'views': None})
 
-            try:
-                lineDic.update({'gender_name': gender})
-            except KeyError:
-                lineDic.update({'gender_name': None})
+                try:
+                    lineDic.update({'gender_name': gender})
+                except KeyError:
+                    lineDic.update({'gender_name': None})
 
-            writer.writerow(lineDic)
+                writer.writerow(lineDic)
+        except KeyError:
+            continue
 file.close()
 print('Finished creating viewed_gender.csv')

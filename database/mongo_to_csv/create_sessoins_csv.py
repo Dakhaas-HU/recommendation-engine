@@ -1,10 +1,10 @@
-from recommendation_engine.database.connection import createConnectionMongoDB
+from database.connection import createConnectionMongoDB
 import csv
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 database = createConnectionMongoDB()
 # TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("./csv/sessions.csv", "w+")
+file = open("./csv/sessions.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 
@@ -17,16 +17,16 @@ with file:
 
     for item in data:
         lineDic = {}
-        print(item)
         try:
             lineDic.update({'session_id': item['_id']})
         except KeyError:
             lineDic.update({'session_id': None})
 
         try:
-            lineDic.update({'profile_id': item['profile_id']})
+            profile = database.profiles.find()
         except KeyError:
-            lineDic.update({'profile_id': None})
+            lineDic.update({'session_id': None})
+
 
         try:
             lineDic.update({'session_start': item['session_start']})

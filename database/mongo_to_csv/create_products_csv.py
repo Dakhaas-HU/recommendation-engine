@@ -1,16 +1,16 @@
-from recommendation_engine.database.connection import createConnectionMongoDB
+from database.connection import createConnectionMongoDB
 import csv
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 database = createConnectionMongoDB()
 # TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("./csv/products.csv", "w+")
+file = open("./csv/products.csv", "w+", encoding="utf-8")
 
 data = database.products.find()
 
 with file:
     fnames = ['product_id', 'brand', 'category', 'color', 'description', 'gender', 'name', 'selling_price',
-              'recommandable', 'sub_category', 'sub_sub_category', 'sub_sub_sub_category', 'availability',
+              'recommandable', 'sub_category', 'sub_sub_category', 'availability',
               'discount', 'target_group', 'unit', 'online_only', 'series', 'sort', 'type', 'variant', 'fragance_type',
               'type_hair_care', 'type_hair_color'
               ]
@@ -19,7 +19,6 @@ with file:
 
     for item in data:
         lineDic = {}
-        print(item)
         try:
             lineDic.update({'product_id': item['_id']})
         except KeyError:

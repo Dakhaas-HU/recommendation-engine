@@ -1,11 +1,14 @@
-from database.connection import createConnectionMongoDB
 import csv
+import os
+
 from dotenv import load_dotenv, find_dotenv
+
+from database.connection import createConnectionMongoDB
+
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
-# TODO: Vragen waarom hiervoor geen path en bij sessions wel?
-file = open("./csv/viewed_product_size.csv", "w+", encoding="utf-8")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_product_size.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 

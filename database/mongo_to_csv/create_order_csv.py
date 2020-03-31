@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-from database.connection import createConnectionMongoDB
-=======
->>>>>>> 34abea3e9512ed27afb678dfff890f234e878c4f
 import csv
 import os
 

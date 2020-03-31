@@ -1,3 +1,3 @@
 mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/profiles.csv' INTO TABLE profiles FIELDS TERMINATED BY ','"
+mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/products.csv' INTO TABLE products FIELDS TERMINATED BY ','"
 mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/previously_recommended.csv' INTO TABLE previously_recommended FIELDS TERMINATED BY ','"
-mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/product.csv' INTO TABLE products FIELDS TERMINATED BY ','"

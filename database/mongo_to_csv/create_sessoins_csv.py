@@ -10,7 +10,7 @@ database = createConnectionMongoDB()
 file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/sessions.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
-
+print(data)
 with file:
     fnames = ['session_id', 'profile_id', 'session_start', 'session_end', 'os_family', 'browser_family',
               'device_brandutel', 'is_botutel', 'is_email_clientutel', 'is_mobileutel', 'is_pcutel', 'is_tabletutel', 'is_touchutel'
@@ -26,9 +26,11 @@ with file:
             lineDic.update({'session_id': None})
 
         try:
-            profile = database.profiles.find()
+            profile = database.profiles.find({'buids': item['buid']})
+            print(profile)
+            lineDic.update({'profile_id': profile['_id']})
         except KeyError:
-            lineDic.update({'session_id': None})
+            lineDic.update({'profile_id': None})
 
 
         try:

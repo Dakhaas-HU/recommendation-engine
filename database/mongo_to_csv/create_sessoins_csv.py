@@ -26,10 +26,11 @@ with file:
             lineDic.update({'session_id': None})
 
         try:
-            profile = database.profiles.find({'buids': item['buid']})
-            print(profile)
+            profile = database.profiles.find_one({'buids': item['buid']})
             lineDic.update({'profile_id': profile['_id']})
         except KeyError:
+            lineDic.update({'profile_id': None})
+        except TypeError:
             lineDic.update({'profile_id': None})
 
 

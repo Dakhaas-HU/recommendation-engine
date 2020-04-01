@@ -1,6 +1,6 @@
 python ../database/mongo_to_csv/create_profiles_csv.py
 python ../database/mongo_to_csv/create_products_csv.py
-python ../database/mongo_to_csv/create_sessions_csv.py
+python ../database/mongo_to_csv/create_sessions_csv_improved.py
 python ../database/mongo_to_csv/create_viewed_before_csv.py
 python ../database/mongo_to_csv/create_order_csv.py
 python ../database/mongo_to_csv/create_viewed_brand_csv.py

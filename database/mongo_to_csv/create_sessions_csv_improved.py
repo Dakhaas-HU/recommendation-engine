@@ -7,10 +7,21 @@ from database.connection import createConnectionMongoDB
 
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 database = createConnectionMongoDB()
-file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/sessions.csv", "w+", encoding="utf-8")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/sessions)improved.csv", "w+", encoding="utf-8")
 
-data = database.sessions.find()
-print(data)
+sessionsdata = database.sessions.find()
+profilesdata = database.profiles.find()
+
+print('Started creating profile dictionary')
+profiledic = {}
+for profile in profilesdata:
+    try:
+        buids = profile['buids']
+        for buid in buids:
+            profiledic[buid] = profile['_id']
+    except KeyError:
+        continue
+print(len(profiledic))
 with file:
     fnames = ['session_id', 'profile_id', 'session_start', 'session_end', 'os_family', 'browser_family',
               'device_brandutel', 'is_botutel', 'is_email_clientutel', 'is_mobileutel', 'is_pcutel', 'is_tabletutel', 'is_touchutel'
@@ -18,7 +29,7 @@ with file:
     writer = csv.DictWriter(file, fieldnames=fnames)
     print('Started creating sessions.csv')
 
-    for item in data:
+    for item in sessionsdata:
         lineDic = {}
         try:
             lineDic.update({'session_id': item['_id']})
@@ -26,13 +37,11 @@ with file:
             lineDic.update({'session_id': None})
 
         try:
-            profile = database.profiles.find_one({'buids': item['buid']})
-            lineDic.update({'profile_id': profile['_id']})
+            lineDic.update({'profile_id': profiledic[''.join(item['buid'])]})
         except KeyError:
             lineDic.update({'profile_id': None})
         except TypeError:
             lineDic.update({'profile_id': None})
-
 
         try:
             lineDic.update({'session_start': item['session_start']})

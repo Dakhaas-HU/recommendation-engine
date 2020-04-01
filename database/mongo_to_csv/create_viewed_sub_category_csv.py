@@ -29,7 +29,7 @@ with file:
                     lineDic.update({'session_id': None})
 
                 try:
-                    lineDic.update({'views': sub_gategory['views']})
+                    lineDic.update({'views': sub_gategorys[sub_gategory]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
                 except TypeError:

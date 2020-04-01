@@ -6,7 +6,6 @@ from dotenv import load_dotenv, find_dotenv
 from database.connection import createConnectionMongoDB
 
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
-
 database = createConnectionMongoDB()
 file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_category.csv", "w+", encoding="utf-8")
 
@@ -29,10 +28,8 @@ with file:
                     lineDic.update({'session_id': None})
 
                 try:
-                    lineDic.update({'views': category['views']})
+                    lineDic.update({'views': categorys[category]['views']})
                 except KeyError:
-                    lineDic.update({'views': None})
-                except TypeError:
                     lineDic.update({'views': None})
 
                 try:

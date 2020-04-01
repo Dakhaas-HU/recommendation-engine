@@ -14,7 +14,11 @@ for brand in session.execute(select([distinct(Products.brand)])):
 for product in session.execute(select([Products]).where(Products.brand == '').where(Products.name != '')):
     productNameWords = product[6].split(" ")
     for word in productNameWords:
-        if word in brands:
+        if word == 'Royal':
+            brand = brands[brands.index("Royal Cosmetic Connections")]
+            session.execute(update(Products).where(Products.product_id ==product[0]).values(brand=brand))
+            break
+        elif word in brands:
             brand = brands[brands.index(word)]
             session.execute(update(Products).where(Products.product_id ==product[0]).values(brand=brand))
             break

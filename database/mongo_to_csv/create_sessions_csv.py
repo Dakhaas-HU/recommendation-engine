@@ -26,6 +26,7 @@ with file:
             lineDic.update({'session_id': None})
 
         try:
+            # TODO: Redo this, use an array for this.
             profile = database.profiles.find_one({'buids': item['buid']})
             lineDic.update({'profile_id': profile['_id']})
         except KeyError:

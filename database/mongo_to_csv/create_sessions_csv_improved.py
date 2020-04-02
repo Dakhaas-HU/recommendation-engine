@@ -26,7 +26,7 @@ with file:
     fnames = ['session_id', 'profile_id', 'session_start', 'session_end', 'os_family', 'browser_family',
               'device_brandutel', 'is_botutel', 'is_email_clientutel', 'is_mobileutel', 'is_pcutel', 'is_tabletutel', 'is_touchutel'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames)
+    writer = csv.DictWriter(file, fieldnames=fnames, quoting='#')
     print('Started creating sessions.csv')
 
     for item in sessionsdata:

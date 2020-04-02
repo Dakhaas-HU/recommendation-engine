@@ -14,7 +14,7 @@ data = database.sessions.find()
 with file:
     fnames = ['session_id', 'product_id'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames)
+    writer = csv.DictWriter(file, fieldnames=fnames, quoting='#')
     print('Started creating order.csv')
     for item in data:
         lineDic = {}

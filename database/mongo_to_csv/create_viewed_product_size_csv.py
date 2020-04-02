@@ -15,7 +15,7 @@ data = database.sessions.find()
 with file:
     fnames = ['session_id', 'views', 'product_size_name'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames)
+    writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
     print('Started creating viewed_product_size.csv')
 
     for item in data:

@@ -8,14 +8,14 @@ from database.connection import createConnectionMongoDB
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
-file = open(os.path.dirname(os.path.abspath(__file__)) + "csv/viewed_type.csv", "w+", encoding="utf-8")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_type.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 
 with file:
     fnames = ['session_id', 'views', 'type_name'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames)
+    writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
     print('Started creating viewed_type.csv')
 
     for item in data:

@@ -23,7 +23,7 @@ with file:
             sub_sub_gategorys = item['preferences']['sub_sub_category']
             for sub_sub_gategory in sub_sub_gategorys:
                 lineDic = {}
-                print(sub_sub_gategory)
+                
                 try:
                     lineDic.update({'session_id': item['_id']})
                 except KeyError:

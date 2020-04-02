@@ -32,8 +32,7 @@ with file:
                     lineDic.update({'views': types[type]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
+
 
                 try:
                     lineDic.update({'type_name': type})

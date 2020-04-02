@@ -32,8 +32,7 @@ with file:
                     lineDic.update({'views': product_sizes[product_size]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
+
 
                 try:
                     lineDic.update({'product_size_name': product_size})

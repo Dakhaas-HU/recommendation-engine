@@ -32,8 +32,6 @@ with file:
                     lineDic.update({'views': genders[gender]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
 
                 try:
                     lineDic.update({'gender_name': gender})

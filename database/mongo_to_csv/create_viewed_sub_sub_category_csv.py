@@ -33,8 +33,7 @@ with file:
                     lineDic.update({'views': sub_sub_gategorys[sub_sub_gategory]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
+
 
                 try:
                     lineDic.update({'sub_sub_gategory_name': sub_sub_gategory})

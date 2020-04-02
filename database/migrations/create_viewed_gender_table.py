@@ -7,6 +7,6 @@ Base = declarative_base()
 
 class Viewed_gender(Base):
     __tablename__ = "viewed_gender"
-    session_id = Column(String(255), ForeignKey(Sessions.profile_id), primary_key=True)
+    session_id = Column(String(255), ForeignKey(Sessions.session_id), primary_key=True)
     views = Column(Integer())
     gender_name = Column(String(255))

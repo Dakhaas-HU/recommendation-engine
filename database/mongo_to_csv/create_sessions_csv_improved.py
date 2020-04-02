@@ -64,9 +64,9 @@ with file:
             lineDic.update({'browser_family': None})
 
         try:
-            lineDic.update({'device_brandutel': item['user_agent']['device']['brand']})
+            lineDic.update({'device_brand': item['user_agent']['device']['brand']})
         except KeyError:
-            lineDic.update({'device_brandutel': None})
+            lineDic.update({'device_brand': None})
 
         try:
             lineDic.update({'is_botutel': item['user_agent']['flags']['is_bot']})

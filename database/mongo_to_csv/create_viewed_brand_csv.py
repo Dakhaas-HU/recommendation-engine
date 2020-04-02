@@ -27,18 +27,16 @@ with file:
                     lineDic.update({'session_id': item['_id']})
                 except KeyError:
                     lineDic.update({'session_id': None})
+
                 try:
-                    lineDic.update({'views': brand['views']})
+                    lineDic.update({'views': brands[brand]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
+
                 try:
                     lineDic.update({'brand_name': brand})
                 except KeyError:
                     lineDic.update({'brand_name': None})
-
-                writer.writerow(lineDic)
         except KeyError:
             continue
 file.close()

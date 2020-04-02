@@ -8,7 +8,7 @@ from database.connection import createConnectionMongoDB
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
-file = open(os.path.dirname(os.path.abspath(__file__)) + "csv/viewed_sub_sub_category.csv", "w+", encoding="utf-8")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_sub_sub_category.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 
@@ -20,24 +20,23 @@ with file:
 
     for item in data:
         try:
-            sub_sub_gategorys = item['preferences']['sub_sub_category']
-            for sub_sub_gategory in sub_sub_gategorys:
+            sub_sub_categories = item['preferences']['sub_sub_category']
+            for sub_sub_category in sub_sub_categories:
                 lineDic = {}
-                print(sub_sub_gategory)
+
                 try:
                     lineDic.update({'session_id': item['_id']})
                 except KeyError:
                     lineDic.update({'session_id': None})
 
                 try:
-                    lineDic.update({'views': sub_sub_gategory['views']})
+                    lineDic.update({'views': sub_sub_categories[sub_sub_category]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
-                except TypeError:
-                    lineDic.update({'views': None})
+
 
                 try:
-                    lineDic.update({'sub_sub_gategory_name': sub_sub_gategory})
+                    lineDic.update({'sub_sub_gategory_name': sub_sub_category})
                 except KeyError:
                     lineDic.update({'sub_sub_gategory_name': None})
 

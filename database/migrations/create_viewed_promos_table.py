@@ -7,6 +7,6 @@ Base = declarative_base()
 
 class Viewed_promos(Base):
     __tablename__ = "viewed_promos"
-    session_id = Column(String(255), ForeignKey(Sessions.profile_id), primary_key=True)
+    session_id = Column(String(255), ForeignKey(Sessions.session_id), primary_key=True)
     views = Column(Integer())
     promos_name = Column(String(255))

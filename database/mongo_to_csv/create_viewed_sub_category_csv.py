@@ -20,8 +20,8 @@ with file:
 
     for item in data:
         try:
-            sub_gategorys = item['preferences']['sub_category']
-            for sub_gategory in sub_gategorys:
+            sub_categories = item['preferences']['sub_category']
+            for sub_category in sub_categories:
                 lineDic = {}
                 try:
                     lineDic.update({'session_id': item['_id']})
@@ -29,12 +29,12 @@ with file:
                     lineDic.update({'session_id': None})
 
                 try:
-                    lineDic.update({'views': sub_gategorys[sub_gategory]['views']})
+                    lineDic.update({'views': sub_categories[sub_categories]['views']})
                 except KeyError:
                     lineDic.update({'views': None})
 
                 try:
-                    lineDic.update({'sub_gategory_name': sub_gategory})
+                    lineDic.update({'sub_gategory_name': sub_category})
                 except KeyError:
                     lineDic.update({'sub_gategory_name': None})
 

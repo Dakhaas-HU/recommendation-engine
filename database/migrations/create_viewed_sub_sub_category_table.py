@@ -7,6 +7,6 @@ Base = declarative_base()
 
 class Viewed_sub_sub_category(Base):
     __tablename__ = "viewed_sub_sub_category"
-    session_id = Column(String(255), ForeignKey(Sessions.profile_id), primary_key=True)
+    session_id = Column(String(255), ForeignKey(Sessions.session_id), primary_key=True)
     views = Column(Integer())
     sub_sub_category_name = Column(String(255))

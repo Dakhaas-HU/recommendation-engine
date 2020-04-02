@@ -52,25 +52,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-<<<<<<< HEAD
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.create_viewed_brand_csv">
-    <configuration name="create_products_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
-=======
   <component name="RunManager" selected="Python.create_viewed_brand_csv">
     <configuration name="create_order_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
->>>>>>> master
       <module name="recommendation-engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -82,12 +65,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-<<<<<<< HEAD
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_products_csv.py" />
-=======
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_order_csv.py" />
->>>>>>> master
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -96,7 +75,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_profiles_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="create_products_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="recommendation-engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -108,12 +87,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-<<<<<<< HEAD
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_profiles_csv.py" />
-=======
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_products_csv.py" />
->>>>>>> master
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -134,10 +109,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-<<<<<<< HEAD
-=======
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
->>>>>>> master
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv_improved.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -147,11 +119,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-<<<<<<< HEAD
-    <configuration name="create_viewed_brand_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
-=======
     <configuration name="create_sessoins_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
->>>>>>> master
       <module name="recommendation-engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -163,12 +131,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-<<<<<<< HEAD
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_brand_csv.py" />
-=======
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_sessoins_csv.py" />
->>>>>>> master
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,13 +141,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-<<<<<<< HEAD
-    <configuration name="create_viewed_gender_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="recommendation-engine" />
-=======
     <configuration name="create_viewed_brand_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="recommendation_engine" />
->>>>>>> master
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -194,12 +153,8 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-<<<<<<< HEAD
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_gender_csv.py" />
-=======
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_brand_csv.py" />
->>>>>>> master
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -210,22 +165,10 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        <item itemvalue="Python.content_filtering" />
-=======
         <item itemvalue="Python.create_viewed_brand_csv" />
->>>>>>> master
         <item itemvalue="Python.create_sessoins_csv" />
         <item itemvalue="Python.create_products_csv" />
         <item itemvalue="Python.create_order_csv" />
-=======
-        <item itemvalue="Python.create_viewed_brand_csv" />
-        <item itemvalue="Python.create_viewed_gender_csv" />
-        <item itemvalue="Python.create_products_csv" />
-        <item itemvalue="Python.create_sessions_csv_improved" />
-        <item itemvalue="Python.create_profiles_csv" />
->>>>>>> Stashed changes
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +247,13 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_brand_csv.coverage" NAME="create_viewed_brand_csv Coverage Results" MODIFIED="1585769690798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
-    <SUITE FILE_PATH="coverage/recommendation_engine$create_sessions_csv_improved.coverage" NAME="create_sessions_csv_improved Coverage Results" MODIFIED="1585759104808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_brand_csv.coverage" NAME="create_viewed_brand_csv Coverage Results" MODIFIED="1585830705032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_sub_category_csv.coverage" NAME="create_viewed_sub_category_csv Coverage Results" MODIFIED="1585831162266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_product_size_csv.coverage" NAME="create_viewed_product_size_csv Coverage Results" MODIFIED="1585831046581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_gender_csv.coverage" NAME="create_viewed_gender_csv Coverage Results" MODIFIED="1585830982757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_category_csv.coverage" NAME="create_viewed_category_csv Coverage Results" MODIFIED="1585830927350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_product_type_csv.coverage" NAME="create_viewed_product_type_csv Coverage Results" MODIFIED="1585831079637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_promos_csv.coverage" NAME="create_viewed_promos_csv Coverage Results" MODIFIED="1585831133179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_sessions_csv_improved.coverage" NAME="create_sessions_csv_improved Coverage Results" MODIFIED="1585831303619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
   </component>
 </project>

@@ -1,6 +1,5 @@
 import mysql.connector
 from mysql.connector import Error
-query = "product_id, brand, category, sub_category"
 
 try:
     connection = mysql.connector.connect(host='78.46.250.83',
@@ -8,23 +7,11 @@ try:
                                          user='groupproject',
                                          password='Bierkeet42069!')
 
-    sql_select_Query = "select " + query + " from products"
+    query = "session_id, browser_family, device_brand, os_family, is_bot"
+    sql_select_Query = "select " + query + " from sessions"
     cursor = connection.cursor()
     cursor.execute(sql_select_Query)
     records = cursor.fetchall()
-
-    f_names = query.split(', ')
-    counter, t = {}, 0
-    for row in records:
-        t += 1
-        table_name = row[1] + row[2] + row[3]
-        print(table_name)
-        if table_name in counter:
-            counter[table_name] += [row[0]]
-        else:
-            counter[table_name] = [row[0]]
-
-    print(counter)
 
 except Error as e:
     print("Error reading data from MySQL table", e)

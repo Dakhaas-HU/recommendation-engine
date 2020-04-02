@@ -17,7 +17,7 @@ with file:
               'discount', 'target_group', 'unit', 'online_only', 'series', 'sort', 'type', 'variant', 'fragance_type',
               'type_hair_care', 'type_hair_color'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames, quoting='#')
+    writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
     print('Started creating product.csv')
 
     for item in data:

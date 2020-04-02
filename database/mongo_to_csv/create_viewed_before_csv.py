@@ -14,7 +14,7 @@ data = database.profiles.find()
 with file:
     fnames = ['profile_id', 'product_id'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames, quoting='#')
+    writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
     print('Started creating viewed_before.csv')
 
     for item in data:

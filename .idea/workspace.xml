@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b34a17f-0895-4a92-b9a1-a2623b574a44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/buisness rules/content_filtering" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buisness rules/collaberative_filter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_sessoins_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_sessoins_csv.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +145,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.content_filtering" />
         <item itemvalue="Python.create_sessoins_csv" />
         <item itemvalue="Python.create_products_csv" />
         <item itemvalue="Python.create_order_csv" />

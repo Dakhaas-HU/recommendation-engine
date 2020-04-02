@@ -7,8 +7,8 @@ try:
                                          user='groupproject',
                                          password='Bierkeet42069!')
 
-    query = "session_id, browser_family, device_brand, os_family, is_bot"
-    sql_select_Query = "select " + query + " from sessions"
+    query = "session_id, product_id"
+    sql_select_Query = "select " + query + " from order"
     cursor = connection.cursor()
     cursor.execute(sql_select_Query)
     records = cursor.fetchall()

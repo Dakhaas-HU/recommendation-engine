@@ -13,7 +13,7 @@ data = database.profiles.find()
 with file:
     fnames = ['profile_id', 'segment'
               ]
-    writer = csv.DictWriter(file, fieldnames=fnames)
+    writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
     print('Started creating profiles.csv')
 
     for item in data:

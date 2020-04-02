@@ -8,7 +8,7 @@ from database.connection import createConnectionMongoDB
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
 database = createConnectionMongoDB()
-file = open(os.path.dirname(os.path.abspath(__file__)) + "csv/viewed_sub_sub_category.csv", "w+", encoding="utf-8")
+file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_sub_sub_category.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
 

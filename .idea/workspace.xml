@@ -3,23 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b34a17f-0895-4a92-b9a1-a2623b574a44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_order_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_order_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_previously_recommended_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_previously_recommended_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_products_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_products_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_profiles_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_profiles_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv_improved.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv_improved.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_before_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_before_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_brand_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_brand_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_category_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_category_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_gender_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_gender_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_product_size_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_product_size_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_product_type_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_product_type_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_promos_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_promos_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_sub_category_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_sub_category_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_sub_sub_category_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_sub_sub_category_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_type_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongo_to_csv/create_viewed_type_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installation_scripts/csv_to_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/installation_scripts/csv_to_mysql.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +35,29 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.create_viewed_brand_csv">
+  <component name="RunManager" selected="Python.brand">
+    <configuration name="brand" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="recommendation_engine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/engine/preprocessing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/engine/preprocessing/brand.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="create_order_csv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="recommendation-engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,8 +102,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_sessions_csv_improved" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="recommendation-engine" />
+    <configuration name="create_sessions_csv_improved" type="PythonConfigurationType" factoryName="Python">
+      <module name="recommendation_engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -110,6 +115,16 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv_improved.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -163,8 +178,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.create_sessions_csv_improved" />
+      <item itemvalue="Python.create_order_csv" />
+      <item itemvalue="Python.create_products_csv" />
+      <item itemvalue="Python.create_sessoins_csv" />
+      <item itemvalue="Python.create_viewed_brand_csv" />
+      <item itemvalue="Python.brand" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.brand" />
         <item itemvalue="Python.create_viewed_brand_csv" />
         <item itemvalue="Python.create_sessoins_csv" />
         <item itemvalue="Python.create_products_csv" />
@@ -183,6 +207,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585570113008</updated>
       <workItem from="1585821603447" duration="378000" />
+      <workItem from="1585833396186" duration="5215000" />
+      <workItem from="1585992232729" duration="759000" />
     </task>
     <servers />
   </component>
@@ -202,26 +228,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="418" y="1258" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585833421968">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="418" y="1258" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585833421968" />
+    <state x="622" y="1190" width="666" height="819" key="#create_sessions_csv_improved" timestamp="1585833412871">
+      <screen x="0" y="1080" width="1920" height="1080" />
+    </state>
+    <state x="622" y="1190" width="666" height="819" key="#create_sessions_csv_improved/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585833412871" />
     <state x="743" y="1358" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585762853337">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
     <state x="743" y="1358" width="424" height="484" key="FileChooserDialogImpl/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585762853337" />
-    <state width="1874" height="257" key="GridCell.Tab.0.bottom" timestamp="1585769846500">
+    <state width="1874" height="318" key="GridCell.Tab.0.bottom" timestamp="1585847174909">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="257" key="GridCell.Tab.0.bottom/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585769846500" />
-    <state width="1874" height="257" key="GridCell.Tab.0.center" timestamp="1585769846500">
+    <state width="1874" height="318" key="GridCell.Tab.0.bottom/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585847174909" />
+    <state width="1874" height="318" key="GridCell.Tab.0.center" timestamp="1585847174909">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="257" key="GridCell.Tab.0.center/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585769846500" />
-    <state width="1874" height="257" key="GridCell.Tab.0.left" timestamp="1585769846500">
+    <state width="1874" height="318" key="GridCell.Tab.0.center/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585847174909" />
+    <state width="1874" height="318" key="GridCell.Tab.0.left" timestamp="1585847174908">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="257" key="GridCell.Tab.0.left/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585769846500" />
-    <state width="1874" height="257" key="GridCell.Tab.0.right" timestamp="1585769846500">
+    <state width="1874" height="318" key="GridCell.Tab.0.left/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585847174908" />
+    <state width="1874" height="318" key="GridCell.Tab.0.right" timestamp="1585847174909">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
-    <state width="1874" height="257" key="GridCell.Tab.0.right/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585769846500" />
+    <state width="1874" height="318" key="GridCell.Tab.0.right/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1585847174909" />
     <state x="331" y="1153" width="1536" height="894" key="MergeDialog" timestamp="1585759399565">
       <screen x="0" y="1080" width="1920" height="1080" />
     </state>
@@ -237,6 +271,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/database/mongo_to_csv/create_sessions_csv_improved.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -249,11 +290,12 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_brand_csv.coverage" NAME="create_viewed_brand_csv Coverage Results" MODIFIED="1585830705032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_sub_category_csv.coverage" NAME="create_viewed_sub_category_csv Coverage Results" MODIFIED="1585831162266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$brand.coverage" NAME="brand Coverage Results" MODIFIED="1585912646072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine/preprocessing" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_product_size_csv.coverage" NAME="create_viewed_product_size_csv Coverage Results" MODIFIED="1585831046581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_gender_csv.coverage" NAME="create_viewed_gender_csv Coverage Results" MODIFIED="1585830982757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_category_csv.coverage" NAME="create_viewed_category_csv Coverage Results" MODIFIED="1585830927350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_product_type_csv.coverage" NAME="create_viewed_product_type_csv Coverage Results" MODIFIED="1585831079637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
     <SUITE FILE_PATH="coverage/recommendation_engine$create_viewed_promos_csv.coverage" NAME="create_viewed_promos_csv Coverage Results" MODIFIED="1585831133179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
-    <SUITE FILE_PATH="coverage/recommendation_engine$create_sessions_csv_improved.coverage" NAME="create_sessions_csv_improved Coverage Results" MODIFIED="1585831303619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
+    <SUITE FILE_PATH="coverage/recommendation_engine$create_sessions_csv_improved.coverage" NAME="create_sessions_csv_improved Coverage Results" MODIFIED="1585837055176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database/mongo_to_csv" />
   </component>
 </project>

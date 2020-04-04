@@ -3,13 +3,14 @@ from flask_restful import Api, Resource, reqparse
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from database.connection import createConnectionMongoDB
 
 app = Flask(__name__)
 api = Api(app)
 
 # We define these variables to (optionally) connect to an external MongoDB
 # instance.
-envvals = ["MONGODBUSER","MONGODBPASSWORD","MONGODBSERVER"]
+envvals = ["MONGODBUSER", "MONGODBPASSWORD", "MONGODBSERVER"]
 dbstring = 'mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority'
 
 # Since we are asked to pass a class rather than an instance of the class to the
@@ -18,10 +19,11 @@ dbstring = 'mongodb+srv://{0}:{1}@{2}/test?retryWrites=true&w=majority'
 load_dotenv()
 if os.getenv(envvals[0]) is not None:
     envvals = list(map(lambda x: str(os.getenv(x)), envvals))
-    client = MongoClient(dbstring.format(*envvals))
+    client = createConnectionMongoDB()
 else:
-    client = MongoClient()
-database = client.huwebshop 
+    client = createConnectionMongoDB()
+database = client.huwebshop
+
 
 class Recom(Resource):
     """ This class represents the REST API that provides the recommendations for
@@ -31,9 +33,10 @@ class Recom(Resource):
     def get(self, profileid, count):
         """ This function represents the handler for GET requests coming in
         through the API. It currently returns a random sample of products. """
-        randcursor = database.products.aggregate([{ '$sample': { 'size': count } }])
+        randcursor = database.products.aggregate([{'$sample': {'size': count}}])
         prodids = list(map(lambda x: x['_id'], list(randcursor)))
         return prodids, 200
+
 
 # This method binds the Recom class to the REST API, to parse specifically
 # requests in the format described below.

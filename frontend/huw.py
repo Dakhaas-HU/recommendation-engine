@@ -3,6 +3,7 @@ import random, os, json, urllib.parse, requests
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from bson.objectid import ObjectId
+from database.connection import createConnectionMongoDB
 
 # The secret key used for session encryption is randomly generated every time
 # the server is started up. This means all session data (including the 
@@ -51,14 +52,14 @@ class HUWebshop(object):
             for val in self.envvals:
                 envdict[val] = str(os.getenv(val))
             if envdict["MONGODBUSER"] and envdict["MONGODBPASSWORD"] and envdict["MONGODBSERVER"]:
-                self.client = MongoClient(self.dbstring.format(envdict["MONGODBUSER"], envdict["MONGODBPASSWORD"], envdict["MONGODBSERVER"]))
+                self.client = createConnectionMongoDB()
             else:
                 self.client = MongoClient()
             if envdict["RECOMADDRESS"]:
                 self.recseraddress = envdict["RECOMADDRESS"]
         else:
-            self.client = MongoClient()
-        self.database = self.client.huwebshop 
+            self.client = createConnectionMongoDB()
+        self.database = self.client.huwebshop
 
         # Once we have a connection to the database, we check to see whether it
         # has a category index prepared; if not, we have a function to make it.

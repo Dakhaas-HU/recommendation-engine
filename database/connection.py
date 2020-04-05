@@ -1,16 +1,17 @@
 from pymongo import MongoClient
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 import os
-
 
 def createConnectionMongoDB():
     if os.getenv("DB_USE_AUTH") == 'TRUE':
         return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")),
                            authSource=os.getenv("MONGODB_AUTH_DB"),
-                           username=os.getenv("MONGODB_USERNAME"), password=os.getenv("MONGODB_PASSWORD"))
+                           username=os.getenv("MONGODB_USERNAME"), password=os.getenv("MONGODB_PASSWORD"),
+                           database=os.getenv("MONGODB_DATABASE"))
     else:
-        return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")))
+        return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")),
+                           database=os.getenv("MONGODB_DATABASE"))
 
 
 def createConnectionMysqlDB():

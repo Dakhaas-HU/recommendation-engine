@@ -37,6 +37,8 @@ with file:
                     lineDic.update({'brand_name': brand})
                 except KeyError:
                     lineDic.update({'brand_name': None})
+
+                writer.writerow(lineDic)
         except KeyError:
             continue
 file.close()

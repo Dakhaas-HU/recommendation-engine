@@ -3,15 +3,15 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv, find_dotenv
 import os
 
+
 def createConnectionMongoDB():
-    if os.getenv("DB_USE_AUTH") == 'TRUE':
+    print(os.getenv("MONGODB_USE_AUTH"))
+    if os.getenv("MONGODB_USE_AUTH") == 'TRUE':
         return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")),
                            authSource=os.getenv("MONGODB_AUTH_DB"),
-                           username=os.getenv("MONGODB_USERNAME"), password=os.getenv("MONGODB_PASSWORD"),
-                           database=os.getenv("MONGODB_DATABASE"))
+                           username=os.getenv("MONGODB_USERNAME"), password=os.getenv("MONGODB_PASSWORD"))
     else:
-        return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")),
-                           database=os.getenv("MONGODB_DATABASE"))
+        return MongoClient(host=os.getenv("MONGODB_HOST"), port=int(os.getenv("MONGODB_PORT")))
 
 
 def createConnectionMysqlDB():

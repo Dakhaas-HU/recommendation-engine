@@ -7,7 +7,8 @@ from database.connection import createConnectionMongoDB
 
 # The secret key used for session encryption is randomly generated every time
 # the server is started up. This means all session data (including the 
-# shopping cart) is erased between server instances.
+# shopping cart) is e
+# rased between server instances.
 app = Flask(__name__)
 app.secret_key = os.urandom(16)
 
@@ -54,7 +55,7 @@ class HUWebshop(object):
             if envdict["MONGODBUSER"] and envdict["MONGODBPASSWORD"] and envdict["MONGODBSERVER"]:
                 self.client = createConnectionMongoDB()
             else:
-                self.client = MongoClient()
+                self.client = createConnectionMongoDB()
             if envdict["RECOMADDRESS"]:
                 self.recseraddress = envdict["RECOMADDRESS"]
         else:

@@ -16,11 +16,12 @@ def sort_users(users, counter):
                     for product2 in users[profile]:
                         if product1 == product2:
                             points += 1
+                            break
 
                 if points != 0:
                     compatibility = len(users[user]) / points
-                    counter[user] += {profile: compatibility}
-                    counter[profile] += {user: compatibility}
+                    counter[user].update({profile: compatibility})
+                    counter[profile].update({user: compatibility})
 
         except IndexError:
             counter[user] = {}

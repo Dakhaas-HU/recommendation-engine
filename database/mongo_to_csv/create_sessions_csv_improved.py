@@ -54,19 +54,14 @@ with file:
             lineDic.update({'session_end': None})
 
         try:
-            lineDic.update({'os_family': item['user_agent']['os']['family']})
-        except KeyError:
-            lineDic.update({'os_family': None})
-
-        try:
-            lineDic.update({'browser_family': item['user_agent']['browser']['family']})
+            lineDic.update({'browser_family': item['user_agent']['browser']['familiy']})
         except KeyError:
             lineDic.update({'browser_family': None})
 
         try:
-            lineDic.update({'device_brand': item['user_agent']['device']['brand']})
+            lineDic.update({'device_brandutel': item['user_agent']['device']['brand']})
         except KeyError:
-            lineDic.update({'device_brand': None})
+            lineDic.update({'device_brandutel': None})
 
         try:
             lineDic.update({'is_botutel': item['user_agent']['flags']['is_bot']})
@@ -97,6 +92,11 @@ with file:
             lineDic.update({'is_touchutel': item['user_agent']['flags']['is_touch_capable']})
         except KeyError:
             lineDic.update({'is_touchutel': None})
+
+        try:
+            lineDic.update({'os_family': item['user_agent']['os']['familiy']})
+        except KeyError:
+            lineDic.update({'os_family': None})
 
         writer.writerow(lineDic)
 file.close()

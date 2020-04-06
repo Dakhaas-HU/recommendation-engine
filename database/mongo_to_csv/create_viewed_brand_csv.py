@@ -7,7 +7,7 @@ from database.connection import createConnectionMongoDB
 
 load_dotenv(dotenv_path=find_dotenv(), verbose=True)
 
-database = createConnectionMongoDB()
+database = createConnectionMongoDB().huwebshop
 file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/viewed_brand.csv", "w+", encoding="utf-8")
 
 data = database.sessions.find()
@@ -37,6 +37,8 @@ with file:
                     lineDic.update({'brand_name': brand})
                 except KeyError:
                     lineDic.update({'brand_name': None})
+
+                writer.writerow(lineDic)
         except KeyError:
             continue
 file.close()

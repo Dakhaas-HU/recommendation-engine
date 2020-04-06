@@ -12,6 +12,8 @@ try:
     cursor = connection.cursor()
     cursor.execute(sql_select_Query)
     records = cursor.fetchall()
+    for row in records:
+        print(row)
 
 except Error as e:
     print("Error reading data from MySQL table", e)

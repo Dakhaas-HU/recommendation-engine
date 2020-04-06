@@ -2,3 +2,4 @@
 alembic.ini
 .env
 database/mongo_to_csv/csv/*.*
+.json

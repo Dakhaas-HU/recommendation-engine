@@ -10,8 +10,14 @@ def queryproductdata(table_name, query, limit1, limit2, limit3):
     return records
 
 
+# TODO: Change var naming to global names
+# update_data(column, value,
 def update_color(new_color, limit1):
-    sql_update_color = 'update products set ' + new_color + ' where ' + limit1
+    if 'None' in new_color:
+        new_color = new_color.replace('None', 'NULL')
+        sql_update_color = 'update products set ' + new_color + ' where ' + limit1
+    else:
+        sql_update_color = 'update products set ' + new_color + ' where ' + limit1
     cursor = connection.cursor()
     cursor.execute(sql_update_color)
 

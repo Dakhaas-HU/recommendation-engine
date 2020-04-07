@@ -66,15 +66,16 @@ try:
                                          database='huwebshop',
                                          user='groupproject',
                                          password='Bierkeet42069!')
-    count_rows = int(data_from_mysql('select count(*) from previously_recommended')[0][0])
-    times = int(count_rows / 100000)
-    t, index, rownum, p_r = 0, '0', '100000', []
-    while t <= times:
-        p_r = compare_users(data_from_mysql('select profile_id, product_id from previously_recommended LIMIT ' + rownum
-                                            + ' OFFSET ' + index), {})
-        write_data('test.json', p_r)
-        index = str(int(index) + 100000)
-        t += 1
+    # count_rows = int(data_from_mysql('select count(*) from previously_recommended')[0][0])
+    # times = int(count_rows / 100000)
+    # t, index, rownum, p_r = 0, '0', '100000', []
+    # while t <= times:
+        # p_r = compare_users(data_from_mysql('select profile_id, product_id from previously_recommended LIMIT ' + rownum
+                                            # + ' OFFSET ' + index), {})
+        # write_data('test.json', p_r)
+        # index = str(int(index) + 100000)
+        # t += 1
+    compare_users(data_from_mysql('select profile_id, product_id from previously_recommended'), {})
     print(time.time() - t0)
 
 except Error as e:

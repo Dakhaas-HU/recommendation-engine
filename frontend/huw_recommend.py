@@ -4,6 +4,7 @@ import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from database.connection import createConnectionMongoDB
+from engine.request_queries import trend_recommendation
 
 app = Flask(__name__)
 api = Api(app)
@@ -30,14 +31,16 @@ class Recom(Resource):
     the webshop. At the moment, the API simply returns a random set of products
     to recommend."""
 
-    def get(self, profileid, count):
+    def get(self, profileid, count, type, productid):
         """ This function represents the handler for GET requests coming in
         through the API. It currently returns a random sample of products. """
-        randcursor = database.products.aggregate([{'$sample': {'size': count}}])
-        prodids = list(map(lambda x: x['_id'], list(randcursor)))
+        print(type, profileid, count, productid)
+        # randcursor = database.products.aggregate([{'$sample': {'size': count}}])
+        # prodids = list(map(lambda x: x['_id'], list(randcursor)))
+        prodids = trend_recommendation(count)
         return prodids, 200
 
 
 # This method binds the Recom class to the REST API, to parse specifically
 # requests in the format described below.
-api.add_resource(Recom, "/<string:profileid>/<int:count>")
+api.add_resource(Recom, "/<string:profileid>/<int:count>/<string:type>/<string:productid>")

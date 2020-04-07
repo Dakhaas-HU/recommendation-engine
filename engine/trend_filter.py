@@ -44,6 +44,7 @@ def createProducts():
 
 
 def createRec():
+    print("Started creating trend recommendations")
     orders = huwebshop.execute(
         "SELECT * FROM orders INNER JOIN sessions ON orders.session_id = sessions.session_id")
     trendRec = {}
@@ -70,6 +71,7 @@ def createRec():
         for key in trendProductKeys:
             trendCount = trendProducts.get(key)
             writer.writerow({'product_id': trendCount[0], 'term_id': trendCount[1], 'amount': trendCount[0]})
+    print("Finished creating trend recommendations")
 
 
 createRec()

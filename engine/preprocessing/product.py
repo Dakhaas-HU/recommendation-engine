@@ -16,7 +16,8 @@ def update_value(value, kolom,  limit1):
         value = 'NULL'
         sql_update_color = 'update products set ' + kolom + ' = ' + value + ' where ' + limit1.replace('"', '\"')
     else:
-        sql_update_color = 'update products set ' + kolom + ' =  "' + value.capitalize() + '" where ' + limit1.replace('"', '\"')
+        sql_update_color = 'update products set ' + kolom + ' =  "' + value.capitalize() + '" where ' + \
+                           limit1.replace('"', '\"')
     cursor = connection.cursor()
     cursor.execute(sql_update_color)
 
@@ -43,22 +44,22 @@ for category in queryproductdata('products', 'sub_sub_category', 'sub_sub_catego
                                  'sub_sub_category != ""'):
     categoryset.add(category[0].lower())
 
-print('updating color...')
 # update color by product_id
+print('updating color...')
 for product in queryproductdata('products', 'product_id', 'color = ""', 'color = ""', 'color = ""'):
-    update_value(search_data(product[0], colorset), 'color', 'product_id = """' + product[0] + '"""')
-    
+    update_value(search_data(product[0], colorset), 'color', 'product_id = """' + product[0].replace('"', '') + '"""')
+
 # update color by name
 for name in queryproductdata('products', 'name', 'color = ""', 'name != ""', 'name != ""'):
-    update_value(search_data(name[0], colorset), 'color', 'name = """' + name[0] + '"""')
+    update_value(search_data(name[0], colorset), 'color', 'name = """' + name[0].replace('"', '') + '"""')
 
 # update sub_sub_category by name
 print('updating sub_sub_category...')
 for name in queryproductdata('products', 'name', 'sub_sub_category = ""', 'name != ""', 'name != ""'):
-    update_value(search_data(name[0], categoryset), 'sub_sub_category', 'name = """' + name[0] + '"""')
+    update_value(search_data(name[0], categoryset), 'sub_sub_category', 'name = """' + name[0].replace('"', '') + '"""')
 
 # update sub_sub_category by description
 for description in queryproductdata('products', 'description', 'sub_sub_category = ""', 'description != ""',
                                     'description != ""'):
-    update_value(search_data(description[0], categoryset), 'sub_sub_category', 'description = """' + description[0]
-                 + '"""')
+    update_value(search_data(description[0], categoryset), 'sub_sub_category', 'description = """'
+                 + description[0].replace('"', '') + '"""')

@@ -70,7 +70,7 @@ def createRec():
         trendProductKeys = trendProducts.keys()
         for key in trendProductKeys:
             trendCount = trendProducts.get(key)
-            writer.writerow({'product_id': trendCount[0], 'term_id': trendCount[1], 'amount': trendCount[0]})
+            writer.writerow({'product_id': trendCount[0], 'term_id': trendCount[1], 'amount': trendCount[2]})
     print("Finished creating trend recommendations")
 
 

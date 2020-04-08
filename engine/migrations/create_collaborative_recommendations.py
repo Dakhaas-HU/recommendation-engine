@@ -9,4 +9,5 @@ class Collaborative(Base):
     __tablename__ = 'collaborative_recommendations'
     profile_id = Column(String(255))
     product_id = Column(String(255), ForeignKey(Products.product_id))
+    compatibility = Column(Integer())
     id = Column(Integer(), primary_key=True)

@@ -47,5 +47,3 @@ def homepage_recommendation(profileId):
             productItems = ast.literal_eval(product[1].replace('\r', ''))
             productRecommendations[product[0]] = productItems
     return productRecommendations
-
-# homepage_recommendation("5ada1302fd52a800013a999e")

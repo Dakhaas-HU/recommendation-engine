@@ -10,6 +10,7 @@ dataDB = createConnectionMysqlDB().connect()
 
 
 def homepage_filter():
+    print("Started creating homepage filter data")
     currentTerm = recDB.execute(select([Terms.id]))
     productRecommendation = {}
     file = open(os.path.dirname(os.path.abspath(__file__)) + '/csv/homepage_recommendations.csv', "w+", encoding="utf-8")
@@ -27,6 +28,8 @@ def homepage_filter():
                     productRecommendation.update({category[0]: [product[0]]})
         for category in productRecommendation:
             writer.writerow({'term_id': term[0], 'category': category, 'product_ids': str(productRecommendation[category])})
+
+    print("Finished creating homepage filter data")
 
 
 homepage_filter()

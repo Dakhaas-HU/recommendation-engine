@@ -24,11 +24,10 @@ def contentdata(product):
 def recommend_query(count, productid):
     querylimits = contentdata(queryproductdata('products', '*', 'product_id = "' + productid + '"', '', '', '', '', '',
                                                '', '', ' limit 1'))
-    print(querylimits)
     product = []
     limitcount = 6
     while not product:
-        product = queryproductdata('products', '*', querylimits[0], querylimits[1], querylimits[2], querylimits[3],
+        product = queryproductdata('products', 'product_id', querylimits[0], querylimits[1], querylimits[2], querylimits[3],
                                    querylimits[4], querylimits[5], querylimits[6], 'and product_id != "'
                                    + productid + '"', ' limit ' + str(count))
         if not product:
@@ -41,6 +40,3 @@ connection = mysql.connector.connect(host='78.46.250.83',
                                      database='huwebshop',
                                      user='groupproject',
                                      password='Bierkeet42069!')
-
-
-print(recommend_query(5, '02112'))

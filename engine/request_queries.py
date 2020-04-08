@@ -26,3 +26,5 @@ def trend_recommendation(amount, profileId):
     print(bestProducts)
     return bestProducts
 
+
+def collaborative_recommendation(amount, profileId):

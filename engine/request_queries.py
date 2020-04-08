@@ -55,4 +55,3 @@ def homepage_recommendation(profileId):
 
 
 homepage_recommendation("5ada1302fd52a800013a999e")
-def collaborative_recommendation(amount, profileId):

@@ -34,10 +34,9 @@ class Recom(Resource):
     def get(self, profileid, count, type, productid):
         """ This function represents the handler for GET requests coming in
         through the API. It currently returns a random sample of products. """
-        print(type, profileid, count, productid)
         # randcursor = database.products.aggregate([{'$sample': {'size': count}}])
         # prodids = list(map(lambda x: x['_id'], list(randcursor)))
-        prodids = trend_recommendation(count)
+        prodids = trend_recommendation(count, profileid)
         return prodids, 200
 
 

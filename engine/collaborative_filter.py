@@ -75,7 +75,8 @@ try:
         # write_data('test.json', p_r)
         # index = str(int(index) + 100000)
         # t += 1
-    compare_users(data_from_mysql('select profile_id, product_id from previously_recommended'), {})
+    with open('test.json', 'w+') as file:
+        file.write(json.dumps(compare_users(data_from_mysql('select profile_id, product_id from previously_recommended limit 100000'), {})))
     print(time.time() - t0)
 
 except Error as e:

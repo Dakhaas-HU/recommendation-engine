@@ -10,6 +10,7 @@ from database.migrations.create_sessions_table import Sessions
 from engine.migrations.create_homepage_recommendations import Homepage
 from engine.migrations.create_terms_table import Terms
 from engine.migrations.create_trend_recommendations import Trend
+from engine.content_filtering import content_filter
 
 recDB = createConnectionMysqlDBREC().connect()
 dataDB = createConnectionMysqlDB().connect()
@@ -69,4 +70,13 @@ def collaborative_filter(amount, profile_id):
     except ValueError:
         return trend_recommendation(amount, profile_id)
 
+
+def shoppingcart_recommendation(products):
+    recommendation = []
+    products = ast.literal_eval(products)
+    for product in products:
+        items = content_filter(2, product['id'])
+        for item in items:
+            recommendation.append(item)
+    return recommendation
 

@@ -24,3 +24,15 @@ def createConnectionMysqlDB():
         db_uri = 'mysql+pymysql://' + os.getenv('SQLDB_USERNAME') + ':@' + os.getenv('SQLDB_HOST') + '/' + os.getenv(
             'SQLDB_DATABASE')
         return create_engine(db_uri)
+
+
+def createConnectionMysqlDBREC():
+    load_dotenv()
+    if os.getenv("SQLDB_USE_AUTH") == 'True':
+        db_uri = 'mysql+pymysql://' + os.getenv('SQLDB_USERNAME') + ':' + os.getenv('SQLDB_PASSWORD') + '@' + os.getenv(
+            'SQLDB_HOST') + '/' + os.getenv('SQLDB_REC')
+        return create_engine(db_uri)
+    else:
+        db_uri = 'mysql+pymysql://' + os.getenv('SQLDB_USERNAME') + ':@' + os.getenv('SQLDB_HOST') + '/' + os.getenv(
+            'SQLDB_REC')
+        return create_engine(db_uri)

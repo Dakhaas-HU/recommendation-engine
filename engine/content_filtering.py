@@ -1,30 +1,46 @@
 import mysql.connector
-from mysql.connector import Error
-query = "product_id, category, color"
 
-try:
-    connection = mysql.connector.connect(host='78.46.250.83',
-                                         database='huwebshop',
-                                         user='groupproject',
-                                         password='Bierkeet42069!')
 
-    sql_select_Query = "select " + query + " from products"
+def queryproductdata(table_name, query, limit1, limit2, limit3, limit4, limit5, limit6, limit7, limit8, limit):
+    sql_select_query = 'select ' + query + ' from ' + table_name + ' where ' + limit1 + limit2 + limit3 + \
+                       limit4 + limit5 + limit6 + limit7 + limit8 + limit
     cursor = connection.cursor()
-    cursor.execute(sql_select_Query)
+    cursor.execute(sql_select_query)
     records = cursor.fetchall()
+    return records
 
-    f_names = query.split(', ')
-    counter, t = {}, 0
-    for row in records:
-        t += 1
-        table_name = row[1] + row[2]
-        if table_name in counter:
-            counter[table_name] += [row[0]]
-        else:
-            counter[table_name] = [row[0]]
 
-    for row in counter:
-        print(row, counter[row])
+def contentdata(product):
+    lst = ['', '', '', '', '', '', '']
+    nrs = [13, 1, 10, 3, 19, 21, 20]
+    koloms = ['availablity =', 'and brand =', 'and sub_sub_category =', 'and color =', 'and type =',
+              'and type_hair_color =', 'and type_hair_care =']
+    for nr in nrs:
+        if (product[0])[nr] is not '':
+            lst[nrs.index(nr)] = koloms[nrs.index(nr)] + ' "' + (product[0])[nr] + '" '
+    return lst
 
-except Error as e:
-    print("Error reading data from MySQL table", e)
+
+def recommend_query(count, productid):
+    querylimits = contentdata(queryproductdata('products', '*', 'product_id = "' + productid + '"', '', '', '', '', '',
+                                               '', '', ' limit 1'))
+    print(querylimits)
+    product = []
+    limitcount = 6
+    while not product:
+        product = queryproductdata('products', '*', querylimits[0], querylimits[1], querylimits[2], querylimits[3],
+                                   querylimits[4], querylimits[5], querylimits[6], 'and product_id != "'
+                                   + productid + '"', ' limit ' + str(count))
+        if not product:
+            limitcount -= 1
+            querylimits[limitcount] = ''
+    return product
+
+
+connection = mysql.connector.connect(host='78.46.250.83',
+                                     database='huwebshop',
+                                     user='groupproject',
+                                     password='Bierkeet42069!')
+
+
+print(recommend_query(5, '02112'))

@@ -2,11 +2,13 @@ from database.connection import createConnectionMysqlDBREC, createConnectionMysq
 import datetime, ast, time, random
 from sqlalchemy.sql import select
 from sqlalchemy import desc
-from engine.migrations.create_terms_table import Terms
-from engine.migrations.create_trend_recommendations import Trend
+from sqlalchemy.sql import select
+
+from database.connection import createConnectionMysqlDBREC, createConnectionMysqlDB, createConnectionMongoDB
 from database.migrations.create_sessions_table import Sessions
 from engine.migrations.create_homepage_recommendations import Homepage
-from database.migrations.create_products_table import Products
+from engine.migrations.create_terms_table import Terms
+from engine.migrations.create_trend_recommendations import Trend
 
 recDB = createConnectionMysqlDBREC().connect()
 dataDB = createConnectionMysqlDB().connect()
@@ -39,14 +41,14 @@ def trend_recommendation(amount, profileId):
 def homepage_recommendation(profileId):
     term = get_term(profileId)
     productRecommendations = {}
-    productCategories = []
     for id in term:
+        print(id)
         products = recDB.execute(select([Homepage.category, Homepage.product_ids], Homepage.term_id == id[0]))
         for product in products:
-            print(product)
             productItems = ast.literal_eval(product[1].replace('\r', ''))
             productRecommendations[product[0]] = productItems
     print(productRecommendations)
+    return productRecommendations
 
 
 def collaborative_filter(profile_id):
@@ -62,11 +64,13 @@ def collaborative_filter(profile_id):
             return_lst.append(product_lst[index].split('"')[1])
             del product_lst[index]
         print(return_lst)
+        return return_lst
     except ValueError:
         products = recDB.execute("SELECT product_id FROM products LIMIT " + str(random.randrange(5000)) + ",1")
         for product in products:
             return_lst.append(list(product)[0].replace('\r', ''))
         print(return_lst)
+        return return_lst
 
 
 collaborative_filter("5aca4c1ea1ade60001fc690f")

@@ -236,8 +236,7 @@ class HUWebshop(object):
         resp = requests.get(self.recseraddress+"/"+session['profile_id']+"/"+str(count) + "/" + type + "/" + product)
         if type == 'homepage':
             data = eval(resp.content.decode())
-            print(self.productfields, self.prepproduct)
-            return
+            return data
         else:
             if resp.status_code == 200:
                 recs = eval(resp.content.decode())

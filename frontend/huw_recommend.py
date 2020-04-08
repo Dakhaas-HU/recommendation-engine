@@ -38,8 +38,6 @@ class Recom(Resource):
         # prodids = list(map(lambda x: x['_id'], list(randcursor)))
         prodids = []
         if type == "homepage":
-            print(productfields)
-            productfieldsString = ast.literal_eval(productfields)
             prodids = homepage_recommendation(profileid)
         elif type == "products":
             prodids = trend_recommendation(count, profileid)

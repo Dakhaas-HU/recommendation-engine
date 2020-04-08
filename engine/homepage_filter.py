@@ -31,11 +31,11 @@ def prepproduct( p):
 def homepage_filter():
     print("Started creating homepage filter data")
     currentTerm = recDB.execute(select([Terms.id]))
-    productRecommendation = {}
     file = open(os.path.dirname(os.path.abspath(__file__)) + '/csv/homepage_recommendations.csv', "w+", encoding="utf-8")
     fnames = ['term_id', 'category', 'product_ids']
     writer = csv.DictWriter(file, fieldnames=fnames, delimiter="#")
     for term in currentTerm:
+        productRecommendation = {}
         productsInTerm = recDB.execute(select([Trend.product_id], Trend.term_id == term[0], order_by=[Trend.amount]))
         for product in productsInTerm:
             productCategory = dataDB.execute(select([Products.category], Products.product_id == product[0]))
@@ -46,16 +46,17 @@ def homepage_filter():
                 else:
                     productRecommendation.update({category[0]: [product[0]]})
         for category in productRecommendation:
-            if len(productRecommendation[category]) != 4:
-                getAmount = 4 - len(productRecommendation[category])
-                newRecProds = dataDB.execute(select([Products.product_id], Products.category == category, limit=(getAmount * 2)))
-                for recProduct in newRecProds:
-                    if recProduct[0] not in productRecommendation[category] and len(productRecommendation[category]) != 4:
-                        productRecommendation[category].append(recProduct[0])
-            queryfilter = {"_id": {"$in": productRecommendation[category]}}
-            querycursor = mongoDB.products.find(queryfilter, ['name', 'price.selling_price', 'properties.discount', 'images'])
-            resultlist = list(map(prepproduct, list(querycursor)))
-            writer.writerow({'term_id': term[0], 'category': category, 'product_ids': str(resultlist)})
+            if category:
+                if len(productRecommendation[category]) != 4:
+                    getAmount = 4 - len(productRecommendation[category])
+                    newRecProds = dataDB.execute(select([Products.product_id], Products.category == category, limit=(getAmount * 2)))
+                    for recProduct in newRecProds:
+                        if recProduct[0] not in productRecommendation[category] and len(productRecommendation[category]) != 4:
+                            productRecommendation[category].append(recProduct[0])
+                queryfilter = {"_id": {"$in": productRecommendation[category]}}
+                querycursor = mongoDB.products.find(queryfilter, ['name', 'price.selling_price', 'properties.discount', 'images'])
+                resultlist = list(map(prepproduct, list(querycursor)))
+                writer.writerow({'term_id': term[0], 'category': category, 'product_ids': str(resultlist)})
 
     print("Finished creating homepage filter data")
 

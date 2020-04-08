@@ -1,5 +1,5 @@
 from database.connection import createConnectionMysqlDBREC, createConnectionMysqlDB, createConnectionMongoDB
-import datetime, ast, time
+import datetime, ast, time, random
 from sqlalchemy.sql import select
 from sqlalchemy import desc
 from engine.migrations.create_terms_table import Terms
@@ -49,4 +49,24 @@ def homepage_recommendation(profileId):
     print(productRecommendations)
 
 
-homepage_recommendation("5ada1302fd52a800013a999e")
+def collaborative_filter(profile_id):
+    products = recDB.execute("SELECT product_id FROM collaborative_recommendations WHERE profile_id = '" + profile_id +
+                             "'")
+    product_lst = []
+    for product in products:
+        product_lst.append(list(product)[0].replace('\r', ''))
+    return_lst = []
+    try:
+        for times in range(5):
+            index = random.randrange(len(product_lst))
+            return_lst.append(product_lst[index].split('"')[1])
+            del product_lst[index]
+        print(return_lst)
+    except ValueError:
+        products = recDB.execute("SELECT product_id FROM products LIMIT " + str(random.randrange(5000)) + ",1")
+        for product in products:
+            return_lst.append(list(product)[0].replace('\r', ''))
+        print(return_lst)
+
+
+collaborative_filter("5aca4c1ea1ade60001fc690f")

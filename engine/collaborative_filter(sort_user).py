@@ -60,6 +60,7 @@ def compare_profiles(profile_lst, lst):
     return lst
 
 
+# Voegt het product_id toe aan het profile_id
 def append_products(profile, products):
     if profile in products_lst:
         products_lst[profile] += [products]
@@ -67,6 +68,7 @@ def append_products(profile, products):
         products_lst[profile] = [products]
 
 
+# Kijkt waar de gebruikers de zelfde producten hebben
 def compare_user_order(users):
     for user in users:
         append_products(user[0], user[1])

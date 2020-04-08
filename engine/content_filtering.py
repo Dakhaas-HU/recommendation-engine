@@ -1,6 +1,7 @@
 import mysql.connector
 
 
+# Dit haalt de product data uit de database met een aanpasbaren query.
 def queryproductdata(table_name, query, limit1, limit2, limit3, limit4, limit5, limit6, limit7, limit8, limit):
     sql_select_query = 'select ' + query + ' from ' + table_name + ' where ' + limit1 + limit2 + limit3 + \
                        limit4 + limit5 + limit6 + limit7 + limit8 + limit
@@ -10,6 +11,7 @@ def queryproductdata(table_name, query, limit1, limit2, limit3, limit4, limit5, 
     return records
 
 
+# Maakt een lijst met alle condities waar de query aan moet voldoen.
 def contentdata(product):
     lst = ['', '', '', '', '', '', '']
     nrs = [13, 1, 10, 3, 19, 21, 20]
@@ -24,6 +26,9 @@ def contentdata(product):
     return lst
 
 
+# Main script, data van het bekeken product word opgehaald
+# en maakt de querys die opzoek gaan naar vergelijkbare producten.
+# Zet de recommendations in een list.
 def content_filter(count, productid):
     querylimits = contentdata(queryproductdata('products', '*', 'product_id = "' + productid + '"', '', '', '', '', '',
                                                '', '', ' limit 1'))
@@ -47,5 +52,3 @@ connection = mysql.connector.connect(host='78.46.250.83',
                                      database='huwebshop',
                                      user='groupproject',
                                      password='Bierkeet42069!')
-
-print(content_filter(5, '02194'))

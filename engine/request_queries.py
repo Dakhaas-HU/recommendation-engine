@@ -43,15 +43,10 @@ def homepage_recommendation(profileId):
     for id in term:
         products = recDB.execute(select([Homepage.category, Homepage.product_ids], Homepage.term_id == id[0]))
         for product in products:
+            print(product)
             productItems = ast.literal_eval(product[1].replace('\r', ''))
-            if len(productItems) != 4:
-                getAmount = 4 - len(productItems)
-                newRecProds = dataDB.execute(select([Products.product_id], Products.category == product[0], limit=(getAmount * 2)))
-                for recProduct in newRecProds:
-                    if recProduct[0] not in productItems and len(productItems) != 4:
-                        productItems.append(recProduct[0])
-            productRecommendations.update({product[0]: productItems})
-    return productRecommendations
+            productRecommendations[product[0]] = productItems
+    print(productRecommendations)
 
 
 homepage_recommendation("5ada1302fd52a800013a999e")

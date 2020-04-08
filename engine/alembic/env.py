@@ -18,8 +18,10 @@ fileConfig(config.config_file_name)
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 # TODO: Hier moet je zijn
-from engine.migrations import create_terms_table, create_products_table, create_trend_recommendations
-target_metadata = [create_terms_table.Base.metadata, create_products_table.Base.metadata, create_trend_recommendations.Base.metadata]
+from engine.migrations import create_terms_table, create_products_table, create_trend_recommendations, create_collaborative_recommendations,\
+    create_homepage_recommendations
+target_metadata = [create_terms_table.Base.metadata, create_products_table.Base.metadata, create_trend_recommendations.Base.metadata,
+                   create_collaborative_recommendations.Base.metadata, create_homepage_recommendations.Base.metadata]
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

@@ -3,4 +3,23 @@
 	<h2>Welkom op de homepage van de HU Webshop!</h2>
 	<p>Hier kun je een immens aanbod van diverse producten vinden, die meer of minder nuttig zouden kunnen zijn gedurende je academische loopbaan.</p>
 	<p>Bezoek ons <a href="/producten">productoverzicht</a> hier!</p>
+	<div id="products">
+			{% for category in packet.products_homepage %}
+		<div>
+					<h1>{{category}}</h1>
+			{% for product in packet.products_homepage[category] %}
+				<div class="productpageblock hublueborder">
+					<a href="/productdetail/{{ product.id }}">
+						<div class="productname">{{ product.name }}</div>
+						<div class="productprice">{{ product.price }}</div>
+						<div class="productdiscount hublue">{{ product.discount }}</div>
+					</a>
+					<a href="#" function="add-to-shopping-cart" class="productpage-addtocart button hured" productid="{{ product.id }}">In winkelmand</a>
+				</div>
+			{% endfor %}
+		</div>
+		{% endfor %}
+	</div>
+
+
 {% endblock %}

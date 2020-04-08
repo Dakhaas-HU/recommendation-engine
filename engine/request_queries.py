@@ -39,14 +39,12 @@ def trend_recommendation(amount, profileId):
 def homepage_recommendation(profileId):
     term = get_term(profileId)
     productRecommendations = {}
-    productCategories = []
+    productCategories = productRecommendations.keys()
     for id in term:
         products = recDB.execute(select([Homepage.category, Homepage.product_ids], Homepage.term_id == id[0]))
         for product in products:
-            print(product)
             productItems = ast.literal_eval(product[1].replace('\r', ''))
             productRecommendations[product[0]] = productItems
-    print(productRecommendations)
+    return productRecommendations
 
-
-homepage_recommendation("5ada1302fd52a800013a999e")
+# homepage_recommendation("5ada1302fd52a800013a999e")

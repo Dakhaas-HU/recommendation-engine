@@ -36,7 +36,7 @@ def homepage_filter():
     fnames = ['term_id', 'category', 'product_ids']
     writer = csv.DictWriter(file, fieldnames=fnames, delimiter="#")
     for term in currentTerm:
-        productsInTerm = recDB.execute(select([Trend.product_id], Trend.term_id == term[0], order_by=[Trend.amount], limit=100))
+        productsInTerm = recDB.execute(select([Trend.product_id], Trend.term_id == term[0], order_by=[Trend.amount]))
         for product in productsInTerm:
             productCategory = dataDB.execute(select([Products.category], Products.product_id == product[0]))
             for category in productCategory:

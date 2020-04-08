@@ -21,12 +21,10 @@ def homepage_filter():
             productCategory = dataDB.execute(select([Products.sub_sub_category], Products.product_id == product[0]))
             for category in productCategory:
                 if category[0] in productRecommendation:
-                    print(product[0] not in productRecommendation[category[0]])
                     if product[0] not in productRecommendation[category[0]] and len(productRecommendation[category[0]]) < 4:
                         productRecommendation[category[0]].append(product[0])
                 else:
                     productRecommendation.update({category[0]: [product[0]]})
-                print(productRecommendation)
         for category in productRecommendation:
             writer.writerow({'term_id': term[0], 'category': category, 'product_ids': str(productRecommendation[category])})
 

@@ -41,6 +41,7 @@ def homepage_recommendation(profileId):
     productRecommendations = {}
     productCategories = productRecommendations.keys()
     for id in term:
+        print(id)
         products = recDB.execute(select([Homepage.category, Homepage.product_ids], Homepage.term_id == id[0]))
         for product in products:
             productItems = ast.literal_eval(product[1].replace('\r', ''))

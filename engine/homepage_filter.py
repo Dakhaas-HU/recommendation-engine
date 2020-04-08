@@ -31,12 +31,12 @@ def prepproduct( p):
 def homepage_filter():
     print("Started creating homepage filter data")
     currentTerm = recDB.execute(select([Terms.id]))
-    productRecommendation = {}
     file = open(os.path.dirname(os.path.abspath(__file__)) + '/csv/homepage_recommendations.csv', "w+", encoding="utf-8")
     fnames = ['term_id', 'category', 'product_ids']
     writer = csv.DictWriter(file, fieldnames=fnames, delimiter="#")
     for term in currentTerm:
-        productsInTerm = recDB.execute(select([Trend.product_id], Trend.term_id == term[0], order_by=[Trend.amount]), limit=100)
+        productRecommendation = {}
+        productsInTerm = recDB.execute(select([Trend.product_id], Trend.term_id == term[0], order_by=[Trend.amount]))
         for product in productsInTerm:
             productCategory = dataDB.execute(select([Products.category], Products.product_id == product[0]))
             for category in productCategory:

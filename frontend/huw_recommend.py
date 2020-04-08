@@ -1,10 +1,10 @@
 from flask import Flask, request, session, render_template, redirect, url_for, g
 from flask_restful import Api, Resource, reqparse
-import os
+import os, ast
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from database.connection import createConnectionMongoDB
-from engine.request_queries import trend_recommendation
+from engine.request_queries import trend_recommendation, homepage_recommendation
 
 app = Flask(__name__)
 api = Api(app)
@@ -36,7 +36,13 @@ class Recom(Resource):
         through the API. It currently returns a random sample of products. """
         # randcursor = database.products.aggregate([{'$sample': {'size': count}}])
         # prodids = list(map(lambda x: x['_id'], list(randcursor)))
-        prodids = trend_recommendation(count, profileid)
+        prodids = []
+        if type == "homepage":
+            print(productfields)
+            productfieldsString = ast.literal_eval(productfields)
+            prodids = homepage_recommendation(profileid)
+        elif type == "products":
+            prodids = trend_recommendation(count, profileid)
         return prodids, 200
 
 

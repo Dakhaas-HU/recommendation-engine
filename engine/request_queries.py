@@ -66,12 +66,7 @@ def collaborative_filter(amount, profile_id):
         print(return_lst)
         return return_lst
     except ValueError:
-        return_lst = []
-        products = recDB.execute("SELECT product_id FROM products LIMIT " + str(random.randrange(5000)) + "," + str(amount))
-        for product in products:
-            return_lst.append(list(product)[0].replace('\r', ''))
-        print(return_lst)
-        return return_lst
+        return trend_recommendation(amount, profile_id)
 
 
 collaborative_filter(7, "5aca4c1ea1ade60001fc690f")

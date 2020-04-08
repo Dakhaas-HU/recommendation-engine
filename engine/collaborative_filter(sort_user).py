@@ -7,7 +7,7 @@ counter, o_user_lst = {}, []
 
 
 def write_csv(data):
-    file = open("csv/orders_C.csv", "w+", encoding="utf-8")
+    file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/order_C.csv", "w+", encoding="utf-8")
     with file:
         fnames = ['user_id', 'profile_id', 'compatibility'
                   ]

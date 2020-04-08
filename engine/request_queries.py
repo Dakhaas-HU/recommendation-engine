@@ -51,7 +51,7 @@ def homepage_recommendation(profileId):
     return productRecommendations
 
 
-def collaborative_filter(profile_id):
+def collaborative_filter(amount, profile_id):
     products = recDB.execute("SELECT product_id FROM collaborative_recommendations WHERE profile_id = '" + profile_id +
                              "'")
     product_lst = []
@@ -59,18 +59,19 @@ def collaborative_filter(profile_id):
         product_lst.append(list(product)[0].replace('\r', ''))
     return_lst = []
     try:
-        for times in range(5):
+        for times in range(amount):
             index = random.randrange(len(product_lst))
             return_lst.append(product_lst[index].split('"')[1])
             del product_lst[index]
         print(return_lst)
         return return_lst
     except ValueError:
-        products = recDB.execute("SELECT product_id FROM products LIMIT " + str(random.randrange(5000)) + ",1")
+        return_lst = []
+        products = recDB.execute("SELECT product_id FROM products LIMIT " + str(random.randrange(5000)) + "," + str(amount))
         for product in products:
             return_lst.append(list(product)[0].replace('\r', ''))
         print(return_lst)
         return return_lst
 
 
-collaborative_filter("5aca4c1ea1ade60001fc690f")
+collaborative_filter(7, "5aca4c1ea1ade60001fc690f")

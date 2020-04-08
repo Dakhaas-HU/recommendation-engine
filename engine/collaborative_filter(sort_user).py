@@ -1,36 +1,35 @@
 import mysql.connector
 from mysql.connector import Error
-import json
 import csv
 import os
-counter, o_user_lst = {}, []
+counter, products_lst = {}, {}
 
 
 def write_csv(data):
     file = open(os.path.dirname(os.path.abspath(__file__)) + "/csv/order_C.csv", "w+", encoding="utf-8")
     with file:
-        fnames = ['user_id', 'profile_id', 'compatibility'
+        fnames = ['profile_id', 'product_id', 'compatibility'
                   ]
         writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
         print('Started creating order_C.csv')
         for user in data:
+            lst = []
             for profile in data[user]:
-                lineDic = {}
-                lineDic.update({'user_id': user})
-                lineDic.update({'profile_id': profile})
-                lineDic.update({'compatibility': data[user][profile]})
-                writer.writerow(lineDic)
+                for product in products_lst[profile]:
+                    if product not in products_lst[user] and product not in lst:
+                        lst.append(product)
+                        lineDic = {}
+
+                        lineDic.update({'profile_id': user})
+
+                        lineDic.update({'product_id': str(product)})
+
+                        lineDic.update({'compatibility': data[user][profile]})
+
+                        writer.writerow(lineDic)
     file.close()
     print('Finished creating order_C.csv')
 
-
-"""
-# Schrijft data naar een json bestand
-def write_data(file_name, data):
-    with open(file_name, 'w+') as json_file:
-        json_file.write(json.dumps(data))
-        json_file.close()
-"""
 
 # Haalt data op van de SQL server
 def data_from_mysql(sql_select_query):
@@ -61,32 +60,26 @@ def compare_profiles(profile_lst, lst):
     return lst
 
 
+def append_products(profile, products):
+    if profile in products_lst:
+        products_lst[profile] += [products]
+    else:
+        products_lst[profile] = [products]
+
+
 def compare_user_order(users):
     for user in users:
-        if user[0] not in o_user_lst:
-            o_user_lst.append(user[0])
+        append_products(user[0], user[1])
         profile_lst = []
         users.remove(user)
         for profile in users:
             if user[1] == profile[1]:
                 profile_lst.append(profile)
+                append_products(profile[0], profile[1])
                 add_counter(user, profile)
                 add_counter(profile, user)
         users = compare_profiles(profile_lst, users)
     del users
-
-
-def compare_user_viewed_before(users):
-    for user in users:
-        if user[0] not in o_user_lst:
-            profile_lst = []
-            users.remove(user)
-            for profile in users:
-                if user[1] == profile[1]:
-                    profile_lst.append(profile)
-                    add_counter(user, profile)
-                    add_counter(profile, user)
-            users = compare_profiles(profile_lst, users)
 
 
 try:
@@ -97,11 +90,6 @@ try:
 
     compare_user_order(data_from_mysql("SELECT profile_id, product_id FROM orders INNER JOIN sessions ON orders.session_id = sessions.session_id AND sessions.profile_id != ''"))
     write_csv(counter)
-
-    """write_data('order_data.json', counter)
-    counter = {}
-    compare_user_viewed_before(data_from_mysql("SELECT * FROM viewed_before"))
-    write_data('viewed_before_data.json', counter)"""
 
 except Error as e:
     print("Error reading data from MySQL table", e)

@@ -13,3 +13,5 @@ mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "SET FOREIGN
 mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "SET FOREIGN_KEY_CHECKS = 0; LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/viewed_product_size.csv' INTO TABLE viewed_product_size FIELDS TERMINATED BY '#'"
 mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "SET FOREIGN_KEY_CHECKS = 0; LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/previously_recommended.csv' INTO TABLE previously_recommended FIELDS TERMINATED BY '#'"
 mysql -ugroupproject -pBierkeet42069! --local_infile=1 huwebshop -e "SET FOREIGN_KEY_CHECKS = 0; LOAD DATA LOCAL INFILE '../database/mongo_to_csv/csv/viewed_before.csv' INTO TABLE viewed_before FIELDS TERMINATED BY '#'"
+
+mysql -ugroupproject -pBierkeet42069! --local_infile=1 hu_recommendations -e "SET FOREIGN_KEY_CHECKS = 0; LOAD DATA LOCAL INFILE 'orderC.csv' INTO TABLE collaborative_recommendations FIELDS TERMINATED BY '#'"

@@ -220,6 +220,9 @@ class HUWebshop(object):
         packet['profile_id'] = session['profile_id']
         packet['shopping_cart'] = session['shopping_cart']
         packet['shopping_cart_count'] = self.shoppingcartcount()
+        if template == 'homepage.html':
+            packet['products_homepage'] = self.recommendations(4, 'homepage', "null")
+            print(packet["products_homepage"], template)
         return render_template(template, packet=packet)
 
     """ ..:: Recommendation Functions ::.. """
@@ -231,13 +234,17 @@ class HUWebshop(object):
         of expected recommendations; to have more user information in the REST
         request, this function would have to change."""
         resp = requests.get(self.recseraddress+"/"+session['profile_id']+"/"+str(count) + "/" + type + "/" + product)
-        if resp.status_code == 200:
-            recs = eval(resp.content.decode())
-            queryfilter = {"_id": {"$in": recs}}
-            querycursor = self.database.products.find(queryfilter, self.productfields)
-            resultlist = list(map(self.prepproduct, list(querycursor)))
-            return resultlist
-        return []
+        if type == 'homepage':
+            data = eval(resp.content.decode())
+            return data
+        else:
+            if resp.status_code == 200:
+                recs = eval(resp.content.decode())
+                queryfilter = {"_id": {"$in": recs}}
+                querycursor = self.database.products.find(queryfilter, self.productfields)
+                resultlist = list(map(self.prepproduct, list(querycursor)))
+                print()
+                return resultlist
 
     """ ..:: Full Page Endpoints ::.. """
 

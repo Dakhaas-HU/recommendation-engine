@@ -4,7 +4,7 @@ import os, ast
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from database.connection import createConnectionMongoDB
-from engine.request_queries import trend_recommendation, homepage_recommendation
+from engine.request_queries import trend_recommendation, homepage_recommendation, collaborative_filter
 
 app = Flask(__name__)
 api = Api(app)
@@ -39,8 +39,10 @@ class Recom(Resource):
         prodids = []
         if type == "homepage":
             prodids = homepage_recommendation(profileid)
-        elif type == "products":
+        elif type == 'shoppingcart':
             prodids = trend_recommendation(count, profileid)
+        elif type == "products":
+            prodids = collaborative_filter(count, profileid)
         return prodids, 200
 
 

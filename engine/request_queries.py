@@ -74,4 +74,3 @@ def collaborative_filter(amount, profile_id):
         return return_lst
 
 
-collaborative_filter(7, "5aca4c1ea1ade60001fc690f")

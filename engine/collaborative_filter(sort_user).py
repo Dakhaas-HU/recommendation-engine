@@ -1,6 +1,5 @@
 import mysql.connector
 from mysql.connector import Error
-import json
 import csv
 import os
 counter, products_lst = {}, {}
@@ -14,22 +13,20 @@ def write_csv(data):
         writer = csv.DictWriter(file, fieldnames=fnames, delimiter='#')
         print('Started creating order_C.csv')
         for user in data:
+            lst = []
             for profile in data[user]:
-                if data[user][profile] > 2:
-                    lineDic = {}
+                for product in products_lst[profile]:
+                    if product not in products_lst[user] and product not in lst:
+                        lst.append(product)
+                        lineDic = {}
 
-                    lineDic.update({'profile_id': user})
+                        lineDic.update({'profile_id': user})
 
-                    products = data_from_mysql("SELECT product_id FROM orders INNER JOIN sessions ON orders.session_id = se"
-                                                "ssions.session_id AND sessions.profile_id = '" + profile + "'")
-                    for product in products:
-                        if product not in products_lst[user]:
-                            lineDic.update({'product_id': product})
-                            break
+                        lineDic.update({'product_id': str(product)})
 
-                    lineDic.update({'compatibility': data[user][profile]})
+                        lineDic.update({'compatibility': data[user][profile]})
 
-                writer.writerow(lineDic)
+                        writer.writerow(lineDic)
     file.close()
     print('Finished creating order_C.csv')
 

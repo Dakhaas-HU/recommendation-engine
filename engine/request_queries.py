@@ -1,12 +1,14 @@
-from database.connection import createConnectionMysqlDBREC, createConnectionMysqlDB, createConnectionMongoDB
-import datetime, ast, time
-from sqlalchemy.sql import select
+import ast
+import datetime
+
 from sqlalchemy import desc
-from engine.migrations.create_terms_table import Terms
-from engine.migrations.create_trend_recommendations import Trend
+from sqlalchemy.sql import select
+
+from database.connection import createConnectionMysqlDBREC, createConnectionMysqlDB, createConnectionMongoDB
 from database.migrations.create_sessions_table import Sessions
 from engine.migrations.create_homepage_recommendations import Homepage
-from database.migrations.create_products_table import Products
+from engine.migrations.create_terms_table import Terms
+from engine.migrations.create_trend_recommendations import Trend
 
 recDB = createConnectionMysqlDBREC().connect()
 dataDB = createConnectionMysqlDB().connect()
@@ -39,7 +41,6 @@ def trend_recommendation(amount, profileId):
 def homepage_recommendation(profileId):
     term = get_term(profileId)
     productRecommendations = {}
-    productCategories = productRecommendations.keys()
     for id in term:
         print(id)
         products = recDB.execute(select([Homepage.category, Homepage.product_ids], Homepage.term_id == id[0]))

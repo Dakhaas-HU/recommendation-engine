@@ -59,14 +59,17 @@ def collaborative_filter(amount, profile_id):
         product_lst.append(list(product)[0].replace('\r', ''))
     return_lst = []
     try:
-        for times in range(amount):
-            index = random.randrange(len(product_lst))
-            return_lst.append(product_lst[index].split('"')[1])
-            del product_lst[index]
-        print(return_lst)
-        return return_lst
+        if not product_lst:
+            return trend_recommendation(amount, profile_id)
+        else:
+            for times in range(amount):
+                index = random.randrange(len(product_lst))
+                return_lst.append(product_lst[index].split('"')[1])
+                del product_lst[index]
+            print(return_lst)
+            return return_lst
     except ValueError:
         return trend_recommendation(amount, profile_id)
 
 
-collaborative_filter(7, "5aca4c1ea1ade60001fc690f")
+trend_recommendation(7, "59dce303a56ac6edb4c1104d")

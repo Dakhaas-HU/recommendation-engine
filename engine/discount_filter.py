@@ -1,6 +1,6 @@
 import mysql.connector
 
-
+# Query maken om de discount van een product op te halen.
 def queryproductdata(table_name, query, limit1):
     sql_select_query = 'select ' + query + ' from ' + table_name + ' where product_id = "' + limit1 + '"'
     cursor = connection.cursor()
@@ -9,6 +9,7 @@ def queryproductdata(table_name, query, limit1):
     return records
 
 
+# Sorteert de lijst met product_ids op discounts.
 def discount_filter(recommendations):
     sortedrecommendations = []
     for product in recommendations:
